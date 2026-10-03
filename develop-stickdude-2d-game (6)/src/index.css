@@ -1,0 +1,37 @@
+@import "@fontsource/gloria-hallelujah/latin-400.css";
+@import "@fontsource/permanent-marker/latin-400.css";
+@import "@fontsource/rock-salt/latin-400.css";
+@import "tailwindcss";
+
+html, body, #root { margin: 0; height: 100%; background: #000; overflow: hidden; }
+body { user-select: none; }
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-0.8deg) translateY(0); }
+  50% { transform: rotate(0.8deg) translateY(-3px); }
+}
+.wobble { animation: wobble 1.6s steps(4, end) infinite; }
+
+.stars {
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #fff8 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 70% 20%, #fff8 50%, transparent 52%),
+    radial-gradient(2px 2px at 40% 70%, #fff6 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 85% 60%, #fff8 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 10% 80%, #fff6 50%, transparent 52%),
+    radial-gradient(2px 2px at 55% 12%, #fff9 50%, transparent 52%);
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+@keyframes twinkle { from { opacity: 0.5; } to { opacity: 1; } }
+
+.page {
+  background-color: #fbfaf2;
+  background-image:
+    linear-gradient(90deg, transparent 56px, #e07070 56px, #e07070 58px, transparent 58px),
+    repeating-linear-gradient(transparent 0, transparent 31px, #9ec5e0 31px, #9ec5e0 32px);
+  animation: pageIn 0.5s ease-out;
+}
+@keyframes pageIn { from { opacity: 0; transform: translateY(14px) rotate(-1deg); } to { opacity: 1; transform: none; } }
+
+.credits-scroll { top: 100%; animation: creditsRoll 45s linear forwards; }
+@keyframes creditsRoll { to { top: -130%; } }
